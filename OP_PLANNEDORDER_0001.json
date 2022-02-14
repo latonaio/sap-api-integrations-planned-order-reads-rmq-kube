@@ -1,0 +1,4038 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Planned Order",
+    "version": "1 ",
+    "description": "\r\nThe service contains planned order header, planned order capacity and planned order components. The information is sent in the request as a payload. You can read, create, change and delete components of orders and also use this service to schedule planned order operations."
+  },
+  "externalDocs": {
+    "description": "Business Documentation",
+    "url": "https://help.sap.com/http.svc/ahp2/SAP_S4HANA_ON-PREMISE/2021.000/EN/a3/647ff7717044128f7c42d141e49edc/frameset.htm"
+  },
+  "x-sap-api-type": "ODATAV4",
+  "x-sap-shortText": "Manage planned orders using this synchronous inbound OData V4 service",
+  "x-sap-api-deprecated": "No",
+  "x-sap-software-min-version": "2021",
+  "x-sap-ext-overview": [
+    {
+      "name": "Authentication Methods",
+      "values": [
+        {
+          "text": "Basic, x509",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Business Object",
+      "values": [
+        {
+          "text": "Planned Order",
+          "format": "plain"
+        }
+      ]
+    }
+  ],
+  "x-sap-stateInfo": {
+    "state": "active"
+  },
+  "security": [
+    {
+      "basicAuthentication": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://{host}:{port}/sap/opu/odata4/sap/api_plannedorder/srvd_a2x/sap/plannedorder/0001",
+      "variables": {
+        "host": {
+          "default": ""
+        },
+        "port": {
+          "default": ""
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "name": "Planned Order Capacity"
+    },
+    {
+      "name": "Planned Order Component"
+    },
+    {
+      "name": "Planned Order"
+    }
+  ],
+  "paths": {
+    "/PlannedOrderCapacity": {
+      "get": {
+        "summary": "Get entities from PlannedOrderCapacity",
+        "tags": [
+          "Planned Order Capacity"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionfilter)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "PlannedOrder desc",
+                  "CapacityRequirement",
+                  "CapacityRequirement desc",
+                  "CapacityRequirementItem",
+                  "CapacityRequirementItem desc",
+                  "CapacityRqmtItemCapacity",
+                  "CapacityRqmtItemCapacity desc",
+                  "PlannedOrderType",
+                  "PlannedOrderType desc",
+                  "Sequence",
+                  "Sequence desc",
+                  "Operation",
+                  "Operation desc",
+                  "SubOperation",
+                  "SubOperation desc",
+                  "WorkCenter",
+                  "WorkCenter desc",
+                  "CapacityCategoryCode",
+                  "CapacityCategoryCode desc",
+                  "Capacity",
+                  "Capacity desc",
+                  "MRPController",
+                  "MRPController desc",
+                  "MRPPlant",
+                  "MRPPlant desc",
+                  "OperationLatestStartDate",
+                  "OperationLatestStartDate desc",
+                  "OperationLatestStartTime",
+                  "OperationLatestStartTime desc",
+                  "OperationLatestEndDate",
+                  "OperationLatestEndDate desc",
+                  "OperationLatestEndTime",
+                  "OperationLatestEndTime desc",
+                  "OperationEarliestStartDate",
+                  "OperationEarliestStartDate desc",
+                  "OperationEarliestStartTime",
+                  "OperationEarliestStartTime desc",
+                  "OperationEarliestEndDate",
+                  "OperationEarliestEndDate desc",
+                  "OperationEarliestEndTime",
+                  "OperationEarliestEndTime desc",
+                  "OpLtstSchedldProcgStrtDte",
+                  "OpLtstSchedldProcgStrtDte desc",
+                  "OpLtstSchedldProcgStrtTme",
+                  "OpLtstSchedldProcgStrtTme desc",
+                  "OpLtstSchedldTrdwnStrtDte",
+                  "OpLtstSchedldTrdwnStrtDte desc",
+                  "OpLtstSchedldTrdwnStrtTme",
+                  "OpLtstSchedldTrdwnStrtTme desc",
+                  "ScheduledBasicEndTime",
+                  "ScheduledBasicEndTime desc",
+                  "ScheduledBasicStartTime",
+                  "ScheduledBasicStartTime desc",
+                  "CapacityRequirementUnit",
+                  "CapacityRequirementUnit desc",
+                  "UnitOfMeasureISOCode",
+                  "UnitOfMeasureISOCode desc",
+                  "ScheduledCapReqOpSegSetupDurn",
+                  "ScheduledCapReqOpSegSetupDurn desc",
+                  "RemainingCapReqOpSegSetupDurn",
+                  "RemainingCapReqOpSegSetupDurn desc",
+                  "ScheduledCapReqOpSegProcgDurn",
+                  "ScheduledCapReqOpSegProcgDurn desc",
+                  "RemainingCapReqOpSegProcgDurn",
+                  "RemainingCapReqOpSegProcgDurn desc",
+                  "ScheduledCapReqOpSegTrdwnDurn",
+                  "ScheduledCapReqOpSegTrdwnDurn desc",
+                  "RemainingCapReqOpSegTrdwnDurn",
+                  "RemainingCapReqOpSegTrdwnDurn desc",
+                  "WrkCtrHasLeadingCapacity",
+                  "WrkCtrHasLeadingCapacity desc",
+                  "OperationText",
+                  "OperationText desc",
+                  "PlannedOrderLastChangeDateTime",
+                  "PlannedOrderLastChangeDateTime desc",
+                  "SAP__Messages",
+                  "SAP__Messages desc"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "CapacityRequirement",
+                  "CapacityRequirementItem",
+                  "CapacityRqmtItemCapacity",
+                  "PlannedOrderType",
+                  "Sequence",
+                  "Operation",
+                  "SubOperation",
+                  "WorkCenter",
+                  "CapacityCategoryCode",
+                  "Capacity",
+                  "MRPController",
+                  "MRPPlant",
+                  "OperationLatestStartDate",
+                  "OperationLatestStartTime",
+                  "OperationLatestEndDate",
+                  "OperationLatestEndTime",
+                  "OperationEarliestStartDate",
+                  "OperationEarliestStartTime",
+                  "OperationEarliestEndDate",
+                  "OperationEarliestEndTime",
+                  "OpLtstSchedldProcgStrtDte",
+                  "OpLtstSchedldProcgStrtTme",
+                  "OpLtstSchedldTrdwnStrtDte",
+                  "OpLtstSchedldTrdwnStrtTme",
+                  "ScheduledBasicEndTime",
+                  "ScheduledBasicStartTime",
+                  "CapacityRequirementUnit",
+                  "UnitOfMeasureISOCode",
+                  "ScheduledCapReqOpSegSetupDurn",
+                  "RemainingCapReqOpSegSetupDurn",
+                  "ScheduledCapReqOpSegProcgDurn",
+                  "RemainingCapReqOpSegProcgDurn",
+                  "ScheduledCapReqOpSegTrdwnDurn",
+                  "RemainingCapReqOpSegTrdwnDurn",
+                  "WrkCtrHasLeadingCapacity",
+                  "OperationText",
+                  "PlannedOrderLastChangeDateTime",
+                  "SAP__Messages"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_PlannedOrder"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of PlannedOrderCapacityType",
+                  "type": "object",
+                  "properties": {
+                    "@count": {
+                      "$ref": "#/components/schemas/count"
+                    },
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderCapacityType"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/PlannedOrderCapacity(PlannedOrder='{PlannedOrder}',CapacityRequirement='{CapacityRequirement}',CapacityRequirementItem='{CapacityRequirementItem}',CapacityRqmtItemCapacity='{CapacityRqmtItemCapacity}')": {
+      "parameters": [
+        {
+          "name": "PlannedOrder",
+          "in": "path",
+          "required": true,
+          "description": "Planned Order",
+          "schema": {
+            "type": "string",
+            "maxLength": 10
+          }
+        },
+        {
+          "name": "CapacityRequirement",
+          "in": "path",
+          "required": true,
+          "description": "ID of the Capacity Requirements Record",
+          "schema": {
+            "type": "string",
+            "maxLength": 12
+          }
+        },
+        {
+          "name": "CapacityRequirementItem",
+          "in": "path",
+          "required": true,
+          "description": "Capacity Requirement Item",
+          "schema": {
+            "type": "string",
+            "maxLength": 8
+          }
+        },
+        {
+          "name": "CapacityRqmtItemCapacity",
+          "in": "path",
+          "required": true,
+          "description": "Individual Capacity of a Capacity Requirement Item",
+          "schema": {
+            "type": "string",
+            "maxLength": 4
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get entity from PlannedOrderCapacity by key",
+        "tags": [
+          "Planned Order Capacity"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "CapacityRequirement",
+                  "CapacityRequirementItem",
+                  "CapacityRqmtItemCapacity",
+                  "PlannedOrderType",
+                  "Sequence",
+                  "Operation",
+                  "SubOperation",
+                  "WorkCenter",
+                  "CapacityCategoryCode",
+                  "Capacity",
+                  "MRPController",
+                  "MRPPlant",
+                  "OperationLatestStartDate",
+                  "OperationLatestStartTime",
+                  "OperationLatestEndDate",
+                  "OperationLatestEndTime",
+                  "OperationEarliestStartDate",
+                  "OperationEarliestStartTime",
+                  "OperationEarliestEndDate",
+                  "OperationEarliestEndTime",
+                  "OpLtstSchedldProcgStrtDte",
+                  "OpLtstSchedldProcgStrtTme",
+                  "OpLtstSchedldTrdwnStrtDte",
+                  "OpLtstSchedldTrdwnStrtTme",
+                  "ScheduledBasicEndTime",
+                  "ScheduledBasicStartTime",
+                  "CapacityRequirementUnit",
+                  "UnitOfMeasureISOCode",
+                  "ScheduledCapReqOpSegSetupDurn",
+                  "RemainingCapReqOpSegSetupDurn",
+                  "ScheduledCapReqOpSegProcgDurn",
+                  "RemainingCapReqOpSegProcgDurn",
+                  "ScheduledCapReqOpSegTrdwnDurn",
+                  "RemainingCapReqOpSegTrdwnDurn",
+                  "WrkCtrHasLeadingCapacity",
+                  "OperationText",
+                  "PlannedOrderLastChangeDateTime",
+                  "SAP__Messages"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_PlannedOrder"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderCapacityType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/PlannedOrderCapacity(PlannedOrder='{PlannedOrder}',CapacityRequirement='{CapacityRequirement}',CapacityRequirementItem='{CapacityRequirementItem}',CapacityRqmtItemCapacity='{CapacityRqmtItemCapacity}')/SAP__self.SchedulePlannedOrderOperation": {
+      "post": {
+        "summary": "Invoke action SchedulePlannedOrderOperation",
+        "tags": [
+          "Planned Order Capacity"
+        ],
+        "parameters": [
+          {
+            "name": "PlannedOrder",
+            "in": "path",
+            "required": true,
+            "description": "Planned Order",
+            "schema": {
+              "type": "string",
+              "maxLength": 10
+            }
+          },
+          {
+            "name": "CapacityRequirement",
+            "in": "path",
+            "required": true,
+            "description": "ID of the Capacity Requirements Record",
+            "schema": {
+              "type": "string",
+              "maxLength": 12
+            }
+          },
+          {
+            "name": "CapacityRequirementItem",
+            "in": "path",
+            "required": true,
+            "description": "Capacity Requirement Item",
+            "schema": {
+              "type": "string",
+              "maxLength": 8
+            }
+          },
+          {
+            "name": "CapacityRqmtItemCapacity",
+            "in": "path",
+            "required": true,
+            "description": "Individual Capacity of a Capacity Requirement Item",
+            "schema": {
+              "type": "string",
+              "maxLength": 4
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Action parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "PlannedOrder": {
+                    "type": "string",
+                    "maxLength": 10
+                  },
+                  "OperationLatestStartDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2017-04-13"
+                  },
+                  "OperationLatestStartTime": {
+                    "type": "string",
+                    "format": "time",
+                    "example": "15:51:04"
+                  },
+                  "OperationLatestEndDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2017-04-13"
+                  },
+                  "OperationLatestEndTime": {
+                    "type": "string",
+                    "format": "time",
+                    "example": "15:51:04"
+                  },
+                  "PlndOrdOpSchedulingDirection": {
+                    "type": "string",
+                    "maxLength": 1
+                  },
+                  "PlndOrdOpSchedulingStatus": {
+                    "type": "string",
+                    "maxLength": 4
+                  },
+                  "PlndOrdOpSchedulingStrategy": {
+                    "type": "string",
+                    "maxLength": 2
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderCapacityType"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/PlannedOrderCapacity(PlannedOrder='{PlannedOrder}',CapacityRequirement='{CapacityRequirement}',CapacityRequirementItem='{CapacityRequirementItem}',CapacityRqmtItemCapacity='{CapacityRqmtItemCapacity}')/_PlannedOrder": {
+      "parameters": [
+        {
+          "name": "PlannedOrder",
+          "in": "path",
+          "required": true,
+          "description": "Planned Order",
+          "schema": {
+            "type": "string",
+            "maxLength": 10
+          }
+        },
+        {
+          "name": "CapacityRequirement",
+          "in": "path",
+          "required": true,
+          "description": "ID of the Capacity Requirements Record",
+          "schema": {
+            "type": "string",
+            "maxLength": 12
+          }
+        },
+        {
+          "name": "CapacityRequirementItem",
+          "in": "path",
+          "required": true,
+          "description": "Capacity Requirement Item",
+          "schema": {
+            "type": "string",
+            "maxLength": 8
+          }
+        },
+        {
+          "name": "CapacityRqmtItemCapacity",
+          "in": "path",
+          "required": true,
+          "description": "Individual Capacity of a Capacity Requirement Item",
+          "schema": {
+            "type": "string",
+            "maxLength": 4
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get related _PlannedOrder",
+        "tags": [
+          "Planned Order Capacity",
+          "Planned Order"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "PlannedOrderType",
+                  "PlannedOrderProfile",
+                  "Material",
+                  "MaterialName",
+                  "ProductionPlant",
+                  "MRPPlant",
+                  "MRPArea",
+                  "ProductionVersion",
+                  "MaterialProcurementCategory",
+                  "MaterialProcurementType",
+                  "StorageLocation",
+                  "BaseUnit",
+                  "TotalQuantity",
+                  "PlndOrderPlannedScrapQty",
+                  "GoodsReceiptQty",
+                  "IssuedQuantity",
+                  "PlndOrderPlannedStartDate",
+                  "PlndOrderPlannedStartTime",
+                  "PlndOrderPlannedEndDate",
+                  "PlndOrderPlannedEndTime",
+                  "PlannedOrderOpeningDate",
+                  "PlannedOrderLastChangeDateTime",
+                  "ProductionStartDate",
+                  "ProductionEndDate",
+                  "SalesOrder",
+                  "SalesOrderItem",
+                  "Customer",
+                  "WBSElementInternalID",
+                  "WBSElementExternalID",
+                  "WBSDescription",
+                  "AccountAssignmentCategory",
+                  "Reservation",
+                  "MRPController",
+                  "ProductionSupervisor",
+                  "PurchasingGroup",
+                  "PurchasingOrganization",
+                  "FixedSupplier",
+                  "PurchasingDocument",
+                  "PurchasingDocumentItem",
+                  "QuotaArrangement",
+                  "QuotaArrangementItem",
+                  "SupplierName",
+                  "PlannedOrderIsFirm",
+                  "PlannedOrderIsConvertible",
+                  "PlannedOrderBOMIsFixed",
+                  "PlannedOrderCapacityIsDsptchd",
+                  "CapacityRequirement",
+                  "BillOfOperationsVariant",
+                  "CapacityRequirementOrigin",
+                  "BillOfOperationsType",
+                  "BillOfOperationsGroup",
+                  "LastScheduledDate",
+                  "ScheduledBasicEndDate",
+                  "ScheduledBasicEndTime",
+                  "ScheduledBasicStartDate",
+                  "ScheduledBasicStartTime",
+                  "SchedulingType",
+                  "SAP__Messages"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_PlannedOrderCapacity",
+                  "_PlannedOrderComponent"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/PlannedOrderCapacity(PlannedOrder='{PlannedOrder}',CapacityRequirement='{CapacityRequirement}',CapacityRequirementItem='{CapacityRequirementItem}',CapacityRqmtItemCapacity='{CapacityRqmtItemCapacity}')/_PlannedOrder/SAP__self.SchedulePlannedOrder": {
+      "post": {
+        "summary": "Invoke action SchedulePlannedOrder",
+        "tags": [
+          "Planned Order Capacity"
+        ],
+        "parameters": [
+          {
+            "name": "PlannedOrder",
+            "in": "path",
+            "required": true,
+            "description": "Planned Order",
+            "schema": {
+              "type": "string",
+              "maxLength": 10
+            }
+          },
+          {
+            "name": "CapacityRequirement",
+            "in": "path",
+            "required": true,
+            "description": "ID of the Capacity Requirements Record",
+            "schema": {
+              "type": "string",
+              "maxLength": 12
+            }
+          },
+          {
+            "name": "CapacityRequirementItem",
+            "in": "path",
+            "required": true,
+            "description": "Capacity Requirement Item",
+            "schema": {
+              "type": "string",
+              "maxLength": 8
+            }
+          },
+          {
+            "name": "CapacityRqmtItemCapacity",
+            "in": "path",
+            "required": true,
+            "description": "Individual Capacity of a Capacity Requirement Item",
+            "schema": {
+              "type": "string",
+              "maxLength": 4
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/PlannedOrderComponent": {
+      "get": {
+        "summary": "Get entities from PlannedOrderComponent",
+        "tags": [
+          "Planned Order Component"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionfilter)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "PlannedOrder desc",
+                  "Reservation",
+                  "Reservation desc",
+                  "ReservationItem",
+                  "ReservationItem desc",
+                  "BOMItem",
+                  "BOMItem desc",
+                  "BOMItemDescription",
+                  "BOMItemDescription desc",
+                  "BillOfMaterialCategory",
+                  "BillOfMaterialCategory desc",
+                  "BOMItemSorter",
+                  "BOMItemSorter desc",
+                  "BillOfMaterialItemNumber",
+                  "BillOfMaterialItemNumber desc",
+                  "BillOfMaterialInternalID",
+                  "BillOfMaterialInternalID desc",
+                  "BillOfMaterialVariant",
+                  "BillOfMaterialVariant desc",
+                  "BOMItemCategory",
+                  "BOMItemCategory desc",
+                  "Material",
+                  "Material desc",
+                  "MatlCompRequirementDate",
+                  "MatlCompRequirementDate desc",
+                  "GoodsMovementEntryQty",
+                  "GoodsMovementEntryQty desc",
+                  "EntryUnit",
+                  "EntryUnit desc",
+                  "RequiredQuantity",
+                  "RequiredQuantity desc",
+                  "BaseUnit",
+                  "BaseUnit desc",
+                  "WithdrawnQuantity",
+                  "WithdrawnQuantity desc",
+                  "DebitCreditCode",
+                  "DebitCreditCode desc",
+                  "ComponentScrapInPercent",
+                  "ComponentScrapInPercent desc",
+                  "QuantityIsFixed",
+                  "QuantityIsFixed desc",
+                  "MaterialComponentIsPhantomItem",
+                  "MaterialComponentIsPhantomItem desc",
+                  "Plant",
+                  "Plant desc",
+                  "StorageLocation",
+                  "StorageLocation desc",
+                  "SupplyArea",
+                  "SupplyArea desc",
+                  "MRPController",
+                  "MRPController desc",
+                  "OrderPathValue",
+                  "OrderPathValue desc",
+                  "OrderLevelValue",
+                  "OrderLevelValue desc",
+                  "Assembly",
+                  "Assembly desc",
+                  "AssemblyOrderPathValue",
+                  "AssemblyOrderPathValue desc",
+                  "AssemblyOrderLevelValue",
+                  "AssemblyOrderLevelValue desc",
+                  "DiscontinuationGroup",
+                  "DiscontinuationGroup desc",
+                  "MatlCompDiscontinuationType",
+                  "MatlCompDiscontinuationType desc",
+                  "MatlCompIsFollowUpMaterial",
+                  "MatlCompIsFollowUpMaterial desc",
+                  "FollowUpGroup",
+                  "FollowUpGroup desc",
+                  "FollowUpMaterial",
+                  "FollowUpMaterial desc",
+                  "FollowUpMaterialIsNotActive",
+                  "FollowUpMaterialIsNotActive desc",
+                  "PlannedOrderLastChangeDateTime",
+                  "PlannedOrderLastChangeDateTime desc"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "Reservation",
+                  "ReservationItem",
+                  "BOMItem",
+                  "BOMItemDescription",
+                  "BillOfMaterialCategory",
+                  "BOMItemSorter",
+                  "BillOfMaterialItemNumber",
+                  "BillOfMaterialInternalID",
+                  "BillOfMaterialVariant",
+                  "BOMItemCategory",
+                  "Material",
+                  "MatlCompRequirementDate",
+                  "GoodsMovementEntryQty",
+                  "EntryUnit",
+                  "RequiredQuantity",
+                  "BaseUnit",
+                  "WithdrawnQuantity",
+                  "DebitCreditCode",
+                  "ComponentScrapInPercent",
+                  "QuantityIsFixed",
+                  "MaterialComponentIsPhantomItem",
+                  "Plant",
+                  "StorageLocation",
+                  "SupplyArea",
+                  "MRPController",
+                  "OrderPathValue",
+                  "OrderLevelValue",
+                  "Assembly",
+                  "AssemblyOrderPathValue",
+                  "AssemblyOrderLevelValue",
+                  "DiscontinuationGroup",
+                  "MatlCompDiscontinuationType",
+                  "MatlCompIsFollowUpMaterial",
+                  "FollowUpGroup",
+                  "FollowUpMaterial",
+                  "FollowUpMaterialIsNotActive",
+                  "PlannedOrderLastChangeDateTime"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_PlannedOrder"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of PlannedOrderComponentType",
+                  "type": "object",
+                  "properties": {
+                    "@count": {
+                      "$ref": "#/components/schemas/count"
+                    },
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderComponentType"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/PlannedOrderComponent(PlannedOrder='{PlannedOrder}',Reservation='{Reservation}',ReservationItem='{ReservationItem}')": {
+      "parameters": [
+        {
+          "name": "PlannedOrder",
+          "in": "path",
+          "required": true,
+          "description": "Planned Order",
+          "schema": {
+            "type": "string",
+            "maxLength": 10
+          }
+        },
+        {
+          "name": "Reservation",
+          "in": "path",
+          "required": true,
+          "description": "Number of reservation/dependent requirements",
+          "schema": {
+            "type": "string",
+            "maxLength": 10
+          }
+        },
+        {
+          "name": "ReservationItem",
+          "in": "path",
+          "required": true,
+          "description": "Reservation Item",
+          "schema": {
+            "type": "string",
+            "maxLength": 4
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get entity from PlannedOrderComponent by key",
+        "tags": [
+          "Planned Order Component"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "Reservation",
+                  "ReservationItem",
+                  "BOMItem",
+                  "BOMItemDescription",
+                  "BillOfMaterialCategory",
+                  "BOMItemSorter",
+                  "BillOfMaterialItemNumber",
+                  "BillOfMaterialInternalID",
+                  "BillOfMaterialVariant",
+                  "BOMItemCategory",
+                  "Material",
+                  "MatlCompRequirementDate",
+                  "GoodsMovementEntryQty",
+                  "EntryUnit",
+                  "RequiredQuantity",
+                  "BaseUnit",
+                  "WithdrawnQuantity",
+                  "DebitCreditCode",
+                  "ComponentScrapInPercent",
+                  "QuantityIsFixed",
+                  "MaterialComponentIsPhantomItem",
+                  "Plant",
+                  "StorageLocation",
+                  "SupplyArea",
+                  "MRPController",
+                  "OrderPathValue",
+                  "OrderLevelValue",
+                  "Assembly",
+                  "AssemblyOrderPathValue",
+                  "AssemblyOrderLevelValue",
+                  "DiscontinuationGroup",
+                  "MatlCompDiscontinuationType",
+                  "MatlCompIsFollowUpMaterial",
+                  "FollowUpGroup",
+                  "FollowUpMaterial",
+                  "FollowUpMaterialIsNotActive",
+                  "PlannedOrderLastChangeDateTime"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_PlannedOrder"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderComponentType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update entity in PlannedOrderComponent",
+        "tags": [
+          "Planned Order Component"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New property values",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderComponentType-update"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete entity from PlannedOrderComponent",
+        "tags": [
+          "Planned Order Component"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/PlannedOrderComponent(PlannedOrder='{PlannedOrder}',Reservation='{Reservation}',ReservationItem='{ReservationItem}')/_PlannedOrder": {
+      "parameters": [
+        {
+          "name": "PlannedOrder",
+          "in": "path",
+          "required": true,
+          "description": "Planned Order",
+          "schema": {
+            "type": "string",
+            "maxLength": 10
+          }
+        },
+        {
+          "name": "Reservation",
+          "in": "path",
+          "required": true,
+          "description": "Number of reservation/dependent requirements",
+          "schema": {
+            "type": "string",
+            "maxLength": 10
+          }
+        },
+        {
+          "name": "ReservationItem",
+          "in": "path",
+          "required": true,
+          "description": "Reservation Item",
+          "schema": {
+            "type": "string",
+            "maxLength": 4
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get related _PlannedOrder",
+        "tags": [
+          "Planned Order Component",
+          "Planned Order"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "PlannedOrderType",
+                  "PlannedOrderProfile",
+                  "Material",
+                  "MaterialName",
+                  "ProductionPlant",
+                  "MRPPlant",
+                  "MRPArea",
+                  "ProductionVersion",
+                  "MaterialProcurementCategory",
+                  "MaterialProcurementType",
+                  "StorageLocation",
+                  "BaseUnit",
+                  "TotalQuantity",
+                  "PlndOrderPlannedScrapQty",
+                  "GoodsReceiptQty",
+                  "IssuedQuantity",
+                  "PlndOrderPlannedStartDate",
+                  "PlndOrderPlannedStartTime",
+                  "PlndOrderPlannedEndDate",
+                  "PlndOrderPlannedEndTime",
+                  "PlannedOrderOpeningDate",
+                  "PlannedOrderLastChangeDateTime",
+                  "ProductionStartDate",
+                  "ProductionEndDate",
+                  "SalesOrder",
+                  "SalesOrderItem",
+                  "Customer",
+                  "WBSElementInternalID",
+                  "WBSElementExternalID",
+                  "WBSDescription",
+                  "AccountAssignmentCategory",
+                  "Reservation",
+                  "MRPController",
+                  "ProductionSupervisor",
+                  "PurchasingGroup",
+                  "PurchasingOrganization",
+                  "FixedSupplier",
+                  "PurchasingDocument",
+                  "PurchasingDocumentItem",
+                  "QuotaArrangement",
+                  "QuotaArrangementItem",
+                  "SupplierName",
+                  "PlannedOrderIsFirm",
+                  "PlannedOrderIsConvertible",
+                  "PlannedOrderBOMIsFixed",
+                  "PlannedOrderCapacityIsDsptchd",
+                  "CapacityRequirement",
+                  "BillOfOperationsVariant",
+                  "CapacityRequirementOrigin",
+                  "BillOfOperationsType",
+                  "BillOfOperationsGroup",
+                  "LastScheduledDate",
+                  "ScheduledBasicEndDate",
+                  "ScheduledBasicEndTime",
+                  "ScheduledBasicStartDate",
+                  "ScheduledBasicStartTime",
+                  "SchedulingType",
+                  "SAP__Messages"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_PlannedOrderCapacity",
+                  "_PlannedOrderComponent"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/PlannedOrderComponent(PlannedOrder='{PlannedOrder}',Reservation='{Reservation}',ReservationItem='{ReservationItem}')/_PlannedOrder/SAP__self.SchedulePlannedOrder": {
+      "post": {
+        "summary": "Invoke action SchedulePlannedOrder",
+        "tags": [
+          "Planned Order Component"
+        ],
+        "parameters": [
+          {
+            "name": "PlannedOrder",
+            "in": "path",
+            "required": true,
+            "description": "Planned Order",
+            "schema": {
+              "type": "string",
+              "maxLength": 10
+            }
+          },
+          {
+            "name": "Reservation",
+            "in": "path",
+            "required": true,
+            "description": "Number of reservation/dependent requirements",
+            "schema": {
+              "type": "string",
+              "maxLength": 10
+            }
+          },
+          {
+            "name": "ReservationItem",
+            "in": "path",
+            "required": true,
+            "description": "Reservation Item",
+            "schema": {
+              "type": "string",
+              "maxLength": 4
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/PlannedOrderHeader": {
+      "get": {
+        "summary": "Get entities from PlannedOrderHeader",
+        "tags": [
+          "Planned Order"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionfilter)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "PlannedOrder desc",
+                  "PlannedOrderType",
+                  "PlannedOrderType desc",
+                  "PlannedOrderProfile",
+                  "PlannedOrderProfile desc",
+                  "Material",
+                  "Material desc",
+                  "MaterialName",
+                  "MaterialName desc",
+                  "ProductionPlant",
+                  "ProductionPlant desc",
+                  "MRPPlant",
+                  "MRPPlant desc",
+                  "MRPArea",
+                  "MRPArea desc",
+                  "ProductionVersion",
+                  "ProductionVersion desc",
+                  "MaterialProcurementCategory",
+                  "MaterialProcurementCategory desc",
+                  "MaterialProcurementType",
+                  "MaterialProcurementType desc",
+                  "StorageLocation",
+                  "StorageLocation desc",
+                  "BaseUnit",
+                  "BaseUnit desc",
+                  "TotalQuantity",
+                  "TotalQuantity desc",
+                  "PlndOrderPlannedScrapQty",
+                  "PlndOrderPlannedScrapQty desc",
+                  "GoodsReceiptQty",
+                  "GoodsReceiptQty desc",
+                  "IssuedQuantity",
+                  "IssuedQuantity desc",
+                  "PlndOrderPlannedStartDate",
+                  "PlndOrderPlannedStartDate desc",
+                  "PlndOrderPlannedStartTime",
+                  "PlndOrderPlannedStartTime desc",
+                  "PlndOrderPlannedEndDate",
+                  "PlndOrderPlannedEndDate desc",
+                  "PlndOrderPlannedEndTime",
+                  "PlndOrderPlannedEndTime desc",
+                  "PlannedOrderOpeningDate",
+                  "PlannedOrderOpeningDate desc",
+                  "PlannedOrderLastChangeDateTime",
+                  "PlannedOrderLastChangeDateTime desc",
+                  "ProductionStartDate",
+                  "ProductionStartDate desc",
+                  "ProductionEndDate",
+                  "ProductionEndDate desc",
+                  "SalesOrder",
+                  "SalesOrder desc",
+                  "SalesOrderItem",
+                  "SalesOrderItem desc",
+                  "Customer",
+                  "Customer desc",
+                  "WBSElementInternalID",
+                  "WBSElementInternalID desc",
+                  "WBSElementExternalID",
+                  "WBSElementExternalID desc",
+                  "WBSDescription",
+                  "WBSDescription desc",
+                  "AccountAssignmentCategory",
+                  "AccountAssignmentCategory desc",
+                  "Reservation",
+                  "Reservation desc",
+                  "MRPController",
+                  "MRPController desc",
+                  "ProductionSupervisor",
+                  "ProductionSupervisor desc",
+                  "PurchasingGroup",
+                  "PurchasingGroup desc",
+                  "PurchasingOrganization",
+                  "PurchasingOrganization desc",
+                  "FixedSupplier",
+                  "FixedSupplier desc",
+                  "PurchasingDocument",
+                  "PurchasingDocument desc",
+                  "PurchasingDocumentItem",
+                  "PurchasingDocumentItem desc",
+                  "QuotaArrangement",
+                  "QuotaArrangement desc",
+                  "QuotaArrangementItem",
+                  "QuotaArrangementItem desc",
+                  "SupplierName",
+                  "SupplierName desc",
+                  "PlannedOrderIsFirm",
+                  "PlannedOrderIsFirm desc",
+                  "PlannedOrderIsConvertible",
+                  "PlannedOrderIsConvertible desc",
+                  "PlannedOrderBOMIsFixed",
+                  "PlannedOrderBOMIsFixed desc",
+                  "PlannedOrderCapacityIsDsptchd",
+                  "PlannedOrderCapacityIsDsptchd desc",
+                  "CapacityRequirement",
+                  "CapacityRequirement desc",
+                  "BillOfOperationsVariant",
+                  "BillOfOperationsVariant desc",
+                  "CapacityRequirementOrigin",
+                  "CapacityRequirementOrigin desc",
+                  "BillOfOperationsType",
+                  "BillOfOperationsType desc",
+                  "BillOfOperationsGroup",
+                  "BillOfOperationsGroup desc",
+                  "LastScheduledDate",
+                  "LastScheduledDate desc",
+                  "ScheduledBasicEndDate",
+                  "ScheduledBasicEndDate desc",
+                  "ScheduledBasicEndTime",
+                  "ScheduledBasicEndTime desc",
+                  "ScheduledBasicStartDate",
+                  "ScheduledBasicStartDate desc",
+                  "ScheduledBasicStartTime",
+                  "ScheduledBasicStartTime desc",
+                  "SchedulingType",
+                  "SchedulingType desc",
+                  "SAP__Messages",
+                  "SAP__Messages desc"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "PlannedOrderType",
+                  "PlannedOrderProfile",
+                  "Material",
+                  "MaterialName",
+                  "ProductionPlant",
+                  "MRPPlant",
+                  "MRPArea",
+                  "ProductionVersion",
+                  "MaterialProcurementCategory",
+                  "MaterialProcurementType",
+                  "StorageLocation",
+                  "BaseUnit",
+                  "TotalQuantity",
+                  "PlndOrderPlannedScrapQty",
+                  "GoodsReceiptQty",
+                  "IssuedQuantity",
+                  "PlndOrderPlannedStartDate",
+                  "PlndOrderPlannedStartTime",
+                  "PlndOrderPlannedEndDate",
+                  "PlndOrderPlannedEndTime",
+                  "PlannedOrderOpeningDate",
+                  "PlannedOrderLastChangeDateTime",
+                  "ProductionStartDate",
+                  "ProductionEndDate",
+                  "SalesOrder",
+                  "SalesOrderItem",
+                  "Customer",
+                  "WBSElementInternalID",
+                  "WBSElementExternalID",
+                  "WBSDescription",
+                  "AccountAssignmentCategory",
+                  "Reservation",
+                  "MRPController",
+                  "ProductionSupervisor",
+                  "PurchasingGroup",
+                  "PurchasingOrganization",
+                  "FixedSupplier",
+                  "PurchasingDocument",
+                  "PurchasingDocumentItem",
+                  "QuotaArrangement",
+                  "QuotaArrangementItem",
+                  "SupplierName",
+                  "PlannedOrderIsFirm",
+                  "PlannedOrderIsConvertible",
+                  "PlannedOrderBOMIsFixed",
+                  "PlannedOrderCapacityIsDsptchd",
+                  "CapacityRequirement",
+                  "BillOfOperationsVariant",
+                  "CapacityRequirementOrigin",
+                  "BillOfOperationsType",
+                  "BillOfOperationsGroup",
+                  "LastScheduledDate",
+                  "ScheduledBasicEndDate",
+                  "ScheduledBasicEndTime",
+                  "ScheduledBasicStartDate",
+                  "ScheduledBasicStartTime",
+                  "SchedulingType",
+                  "SAP__Messages"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_PlannedOrderCapacity",
+                  "_PlannedOrderComponent"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of PlannedOrderHeaderType",
+                  "type": "object",
+                  "properties": {
+                    "@count": {
+                      "$ref": "#/components/schemas/count"
+                    },
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add new entity to PlannedOrderHeader",
+        "tags": [
+          "Planned Order"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New entity",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType-create"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/PlannedOrderHeader('{PlannedOrder}')": {
+      "parameters": [
+        {
+          "name": "PlannedOrder",
+          "in": "path",
+          "required": true,
+          "description": "Planned Order",
+          "schema": {
+            "type": "string",
+            "maxLength": 10
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get entity from PlannedOrderHeader by key",
+        "tags": [
+          "Planned Order"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "PlannedOrderType",
+                  "PlannedOrderProfile",
+                  "Material",
+                  "MaterialName",
+                  "ProductionPlant",
+                  "MRPPlant",
+                  "MRPArea",
+                  "ProductionVersion",
+                  "MaterialProcurementCategory",
+                  "MaterialProcurementType",
+                  "StorageLocation",
+                  "BaseUnit",
+                  "TotalQuantity",
+                  "PlndOrderPlannedScrapQty",
+                  "GoodsReceiptQty",
+                  "IssuedQuantity",
+                  "PlndOrderPlannedStartDate",
+                  "PlndOrderPlannedStartTime",
+                  "PlndOrderPlannedEndDate",
+                  "PlndOrderPlannedEndTime",
+                  "PlannedOrderOpeningDate",
+                  "PlannedOrderLastChangeDateTime",
+                  "ProductionStartDate",
+                  "ProductionEndDate",
+                  "SalesOrder",
+                  "SalesOrderItem",
+                  "Customer",
+                  "WBSElementInternalID",
+                  "WBSElementExternalID",
+                  "WBSDescription",
+                  "AccountAssignmentCategory",
+                  "Reservation",
+                  "MRPController",
+                  "ProductionSupervisor",
+                  "PurchasingGroup",
+                  "PurchasingOrganization",
+                  "FixedSupplier",
+                  "PurchasingDocument",
+                  "PurchasingDocumentItem",
+                  "QuotaArrangement",
+                  "QuotaArrangementItem",
+                  "SupplierName",
+                  "PlannedOrderIsFirm",
+                  "PlannedOrderIsConvertible",
+                  "PlannedOrderBOMIsFixed",
+                  "PlannedOrderCapacityIsDsptchd",
+                  "CapacityRequirement",
+                  "BillOfOperationsVariant",
+                  "CapacityRequirementOrigin",
+                  "BillOfOperationsType",
+                  "BillOfOperationsGroup",
+                  "LastScheduledDate",
+                  "ScheduledBasicEndDate",
+                  "ScheduledBasicEndTime",
+                  "ScheduledBasicStartDate",
+                  "ScheduledBasicStartTime",
+                  "SchedulingType",
+                  "SAP__Messages"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_PlannedOrderCapacity",
+                  "_PlannedOrderComponent"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update entity in PlannedOrderHeader",
+        "tags": [
+          "Planned Order"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New property values",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType-update"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete entity from PlannedOrderHeader",
+        "tags": [
+          "Planned Order"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/PlannedOrderHeader('{PlannedOrder}')/SAP__self.SchedulePlannedOrder": {
+      "post": {
+        "summary": "Invoke action SchedulePlannedOrder",
+        "tags": [
+          "Planned Order"
+        ],
+        "parameters": [
+          {
+            "name": "PlannedOrder",
+            "in": "path",
+            "required": true,
+            "description": "Planned Order",
+            "schema": {
+              "type": "string",
+              "maxLength": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/PlannedOrderHeader('{PlannedOrder}')/_PlannedOrderCapacity": {
+      "parameters": [
+        {
+          "name": "PlannedOrder",
+          "in": "path",
+          "required": true,
+          "description": "Planned Order",
+          "schema": {
+            "type": "string",
+            "maxLength": 10
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get entities from related _PlannedOrderCapacity",
+        "tags": [
+          "Planned Order",
+          "Planned Order Capacity"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionfilter)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "PlannedOrder desc",
+                  "CapacityRequirement",
+                  "CapacityRequirement desc",
+                  "CapacityRequirementItem",
+                  "CapacityRequirementItem desc",
+                  "CapacityRqmtItemCapacity",
+                  "CapacityRqmtItemCapacity desc",
+                  "PlannedOrderType",
+                  "PlannedOrderType desc",
+                  "Sequence",
+                  "Sequence desc",
+                  "Operation",
+                  "Operation desc",
+                  "SubOperation",
+                  "SubOperation desc",
+                  "WorkCenter",
+                  "WorkCenter desc",
+                  "CapacityCategoryCode",
+                  "CapacityCategoryCode desc",
+                  "Capacity",
+                  "Capacity desc",
+                  "MRPController",
+                  "MRPController desc",
+                  "MRPPlant",
+                  "MRPPlant desc",
+                  "OperationLatestStartDate",
+                  "OperationLatestStartDate desc",
+                  "OperationLatestStartTime",
+                  "OperationLatestStartTime desc",
+                  "OperationLatestEndDate",
+                  "OperationLatestEndDate desc",
+                  "OperationLatestEndTime",
+                  "OperationLatestEndTime desc",
+                  "OperationEarliestStartDate",
+                  "OperationEarliestStartDate desc",
+                  "OperationEarliestStartTime",
+                  "OperationEarliestStartTime desc",
+                  "OperationEarliestEndDate",
+                  "OperationEarliestEndDate desc",
+                  "OperationEarliestEndTime",
+                  "OperationEarliestEndTime desc",
+                  "OpLtstSchedldProcgStrtDte",
+                  "OpLtstSchedldProcgStrtDte desc",
+                  "OpLtstSchedldProcgStrtTme",
+                  "OpLtstSchedldProcgStrtTme desc",
+                  "OpLtstSchedldTrdwnStrtDte",
+                  "OpLtstSchedldTrdwnStrtDte desc",
+                  "OpLtstSchedldTrdwnStrtTme",
+                  "OpLtstSchedldTrdwnStrtTme desc",
+                  "ScheduledBasicEndTime",
+                  "ScheduledBasicEndTime desc",
+                  "ScheduledBasicStartTime",
+                  "ScheduledBasicStartTime desc",
+                  "CapacityRequirementUnit",
+                  "CapacityRequirementUnit desc",
+                  "UnitOfMeasureISOCode",
+                  "UnitOfMeasureISOCode desc",
+                  "ScheduledCapReqOpSegSetupDurn",
+                  "ScheduledCapReqOpSegSetupDurn desc",
+                  "RemainingCapReqOpSegSetupDurn",
+                  "RemainingCapReqOpSegSetupDurn desc",
+                  "ScheduledCapReqOpSegProcgDurn",
+                  "ScheduledCapReqOpSegProcgDurn desc",
+                  "RemainingCapReqOpSegProcgDurn",
+                  "RemainingCapReqOpSegProcgDurn desc",
+                  "ScheduledCapReqOpSegTrdwnDurn",
+                  "ScheduledCapReqOpSegTrdwnDurn desc",
+                  "RemainingCapReqOpSegTrdwnDurn",
+                  "RemainingCapReqOpSegTrdwnDurn desc",
+                  "WrkCtrHasLeadingCapacity",
+                  "WrkCtrHasLeadingCapacity desc",
+                  "OperationText",
+                  "OperationText desc",
+                  "PlannedOrderLastChangeDateTime",
+                  "PlannedOrderLastChangeDateTime desc",
+                  "SAP__Messages",
+                  "SAP__Messages desc"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "CapacityRequirement",
+                  "CapacityRequirementItem",
+                  "CapacityRqmtItemCapacity",
+                  "PlannedOrderType",
+                  "Sequence",
+                  "Operation",
+                  "SubOperation",
+                  "WorkCenter",
+                  "CapacityCategoryCode",
+                  "Capacity",
+                  "MRPController",
+                  "MRPPlant",
+                  "OperationLatestStartDate",
+                  "OperationLatestStartTime",
+                  "OperationLatestEndDate",
+                  "OperationLatestEndTime",
+                  "OperationEarliestStartDate",
+                  "OperationEarliestStartTime",
+                  "OperationEarliestEndDate",
+                  "OperationEarliestEndTime",
+                  "OpLtstSchedldProcgStrtDte",
+                  "OpLtstSchedldProcgStrtTme",
+                  "OpLtstSchedldTrdwnStrtDte",
+                  "OpLtstSchedldTrdwnStrtTme",
+                  "ScheduledBasicEndTime",
+                  "ScheduledBasicStartTime",
+                  "CapacityRequirementUnit",
+                  "UnitOfMeasureISOCode",
+                  "ScheduledCapReqOpSegSetupDurn",
+                  "RemainingCapReqOpSegSetupDurn",
+                  "ScheduledCapReqOpSegProcgDurn",
+                  "RemainingCapReqOpSegProcgDurn",
+                  "ScheduledCapReqOpSegTrdwnDurn",
+                  "RemainingCapReqOpSegTrdwnDurn",
+                  "WrkCtrHasLeadingCapacity",
+                  "OperationText",
+                  "PlannedOrderLastChangeDateTime",
+                  "SAP__Messages"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_PlannedOrder"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of PlannedOrderCapacityType",
+                  "type": "object",
+                  "properties": {
+                    "@count": {
+                      "$ref": "#/components/schemas/count"
+                    },
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderCapacityType"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/PlannedOrderHeader('{PlannedOrder}')/_PlannedOrderComponent": {
+      "parameters": [
+        {
+          "name": "PlannedOrder",
+          "in": "path",
+          "required": true,
+          "description": "Planned Order",
+          "schema": {
+            "type": "string",
+            "maxLength": 10
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get entities from related _PlannedOrderComponent",
+        "tags": [
+          "Planned Order",
+          "Planned Order Component"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionfilter)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "PlannedOrder desc",
+                  "Reservation",
+                  "Reservation desc",
+                  "ReservationItem",
+                  "ReservationItem desc",
+                  "BOMItem",
+                  "BOMItem desc",
+                  "BOMItemDescription",
+                  "BOMItemDescription desc",
+                  "BillOfMaterialCategory",
+                  "BillOfMaterialCategory desc",
+                  "BOMItemSorter",
+                  "BOMItemSorter desc",
+                  "BillOfMaterialItemNumber",
+                  "BillOfMaterialItemNumber desc",
+                  "BillOfMaterialInternalID",
+                  "BillOfMaterialInternalID desc",
+                  "BillOfMaterialVariant",
+                  "BillOfMaterialVariant desc",
+                  "BOMItemCategory",
+                  "BOMItemCategory desc",
+                  "Material",
+                  "Material desc",
+                  "MatlCompRequirementDate",
+                  "MatlCompRequirementDate desc",
+                  "GoodsMovementEntryQty",
+                  "GoodsMovementEntryQty desc",
+                  "EntryUnit",
+                  "EntryUnit desc",
+                  "RequiredQuantity",
+                  "RequiredQuantity desc",
+                  "BaseUnit",
+                  "BaseUnit desc",
+                  "WithdrawnQuantity",
+                  "WithdrawnQuantity desc",
+                  "DebitCreditCode",
+                  "DebitCreditCode desc",
+                  "ComponentScrapInPercent",
+                  "ComponentScrapInPercent desc",
+                  "QuantityIsFixed",
+                  "QuantityIsFixed desc",
+                  "MaterialComponentIsPhantomItem",
+                  "MaterialComponentIsPhantomItem desc",
+                  "Plant",
+                  "Plant desc",
+                  "StorageLocation",
+                  "StorageLocation desc",
+                  "SupplyArea",
+                  "SupplyArea desc",
+                  "MRPController",
+                  "MRPController desc",
+                  "OrderPathValue",
+                  "OrderPathValue desc",
+                  "OrderLevelValue",
+                  "OrderLevelValue desc",
+                  "Assembly",
+                  "Assembly desc",
+                  "AssemblyOrderPathValue",
+                  "AssemblyOrderPathValue desc",
+                  "AssemblyOrderLevelValue",
+                  "AssemblyOrderLevelValue desc",
+                  "DiscontinuationGroup",
+                  "DiscontinuationGroup desc",
+                  "MatlCompDiscontinuationType",
+                  "MatlCompDiscontinuationType desc",
+                  "MatlCompIsFollowUpMaterial",
+                  "MatlCompIsFollowUpMaterial desc",
+                  "FollowUpGroup",
+                  "FollowUpGroup desc",
+                  "FollowUpMaterial",
+                  "FollowUpMaterial desc",
+                  "FollowUpMaterialIsNotActive",
+                  "FollowUpMaterialIsNotActive desc",
+                  "PlannedOrderLastChangeDateTime",
+                  "PlannedOrderLastChangeDateTime desc"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PlannedOrder",
+                  "Reservation",
+                  "ReservationItem",
+                  "BOMItem",
+                  "BOMItemDescription",
+                  "BillOfMaterialCategory",
+                  "BOMItemSorter",
+                  "BillOfMaterialItemNumber",
+                  "BillOfMaterialInternalID",
+                  "BillOfMaterialVariant",
+                  "BOMItemCategory",
+                  "Material",
+                  "MatlCompRequirementDate",
+                  "GoodsMovementEntryQty",
+                  "EntryUnit",
+                  "RequiredQuantity",
+                  "BaseUnit",
+                  "WithdrawnQuantity",
+                  "DebitCreditCode",
+                  "ComponentScrapInPercent",
+                  "QuantityIsFixed",
+                  "MaterialComponentIsPhantomItem",
+                  "Plant",
+                  "StorageLocation",
+                  "SupplyArea",
+                  "MRPController",
+                  "OrderPathValue",
+                  "OrderLevelValue",
+                  "Assembly",
+                  "AssemblyOrderPathValue",
+                  "AssemblyOrderLevelValue",
+                  "DiscontinuationGroup",
+                  "MatlCompDiscontinuationType",
+                  "MatlCompIsFollowUpMaterial",
+                  "FollowUpGroup",
+                  "FollowUpMaterial",
+                  "FollowUpMaterialIsNotActive",
+                  "PlannedOrderLastChangeDateTime"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "*",
+                  "_PlannedOrder"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of PlannedOrderComponentType",
+                  "type": "object",
+                  "properties": {
+                    "@count": {
+                      "$ref": "#/components/schemas/count"
+                    },
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderComponentType"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add new entity to related _PlannedOrderComponent",
+        "tags": [
+          "Planned Order",
+          "Planned Order Component"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New entity",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderComponentType-create"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderComponentType"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/$batch": {
+      "post": {
+        "summary": "Send a group of requests",
+        "description": "Group multiple requests into a single request payload, see [Batch Requests](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_BatchRequests).\n\n*Please note that \"Try it out\" is not supported for this request.*",
+        "tags": [
+          "Batch Requests"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Batch request",
+          "content": {
+            "multipart/mixed;boundary=request-separator": {
+              "schema": {
+                "type": "string"
+              },
+              "example": "--request-separator\nContent-Type: application/http\nContent-Transfer-Encoding: binary\n\nGET PlannedOrderCapacity HTTP/1.1\nAccept: application/json\n\n\n--request-separator--"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Batch response",
+            "content": {
+              "multipart/mixed": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "--response-separator\nContent-Type: application/http\n\nHTTP/1.1 200 OK\nContent-Type: application/json\n\n{...}\n--response-separator--"
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "basicAuthentication": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderCapacityType": {
+        "type": "object",
+        "properties": {
+          "PlannedOrder": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Planned Order"
+          },
+          "CapacityRequirement": {
+            "type": "string",
+            "maxLength": 12,
+            "title": "Capacity Requirement",
+            "description": "ID of the Capacity Requirements Record"
+          },
+          "CapacityRequirementItem": {
+            "type": "string",
+            "maxLength": 8,
+            "title": "Capacity Requirement Item"
+          },
+          "CapacityRqmtItemCapacity": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Capacity Requirement Item Capacity",
+            "description": "Individual Capacity of a Capacity Requirement Item"
+          },
+          "PlannedOrderType": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Planned Order Type"
+          },
+          "Sequence": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Sequence"
+          },
+          "Operation": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Operation or Phase",
+            "description": "Operation / Phase Number"
+          },
+          "SubOperation": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Operation or Phase",
+            "description": "Operation / Phase Number"
+          },
+          "WorkCenter": {
+            "type": "string",
+            "maxLength": 8,
+            "title": "Work Center"
+          },
+          "CapacityCategoryCode": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Capacity Category"
+          },
+          "Capacity": {
+            "type": "string",
+            "maxLength": 8,
+            "title": "Capacity",
+            "description": "Capacity name"
+          },
+          "MRPController": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "MRP Controller"
+          },
+          "MRPPlant": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Planning Plant"
+          },
+          "OperationLatestStartDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Latest Start Date"
+          },
+          "OperationLatestStartTime": {
+            "type": "string",
+            "format": "time",
+            "example": "15:51:04",
+            "title": "Latest Start Time"
+          },
+          "OperationLatestEndDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Latest End Date"
+          },
+          "OperationLatestEndTime": {
+            "type": "string",
+            "format": "time",
+            "example": "15:51:04",
+            "title": "Latest End Time"
+          },
+          "OperationEarliestStartDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Earliest Start Date"
+          },
+          "OperationEarliestStartTime": {
+            "type": "string",
+            "format": "time",
+            "example": "15:51:04",
+            "title": "Earliest Start Time"
+          },
+          "OperationEarliestEndDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Earliest End Date"
+          },
+          "OperationEarliestEndTime": {
+            "type": "string",
+            "format": "time",
+            "example": "15:51:04",
+            "title": "Earliest End Time"
+          },
+          "OpLtstSchedldProcgStrtDte": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Processing Start Dte",
+            "description": "Latest Scheduled Processing Start Date"
+          },
+          "OpLtstSchedldProcgStrtTme": {
+            "type": "string",
+            "format": "time",
+            "example": "15:51:04",
+            "title": "Processing Start Tme",
+            "description": "Latest Scheduled Processing Start Time"
+          },
+          "OpLtstSchedldTrdwnStrtDte": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Teardown Start Date",
+            "description": "Latest Scheduled Teardown Start Date"
+          },
+          "OpLtstSchedldTrdwnStrtTme": {
+            "type": "string",
+            "format": "time",
+            "example": "15:51:04",
+            "title": "Teardown Start Time",
+            "description": "Latest Scheduled Teardown Start Time"
+          },
+          "ScheduledBasicEndTime": {
+            "type": "string",
+            "format": "time",
+            "example": "15:51:04",
+            "title": "Earliest finish",
+            "description": "Earliest finish of operation (time)"
+          },
+          "ScheduledBasicStartTime": {
+            "type": "string",
+            "format": "time",
+            "example": "15:51:04",
+            "title": "Earliest start time",
+            "description": "Earliest scheduled start: Execution (time)"
+          },
+          "CapacityRequirementUnit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Capacity Unit",
+            "description": "Unit of Measure for Capacity Requirements"
+          },
+          "UnitOfMeasureISOCode": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "ISO code",
+            "description": "ISO code for unit of measurement"
+          },
+          "ScheduledCapReqOpSegSetupDurn": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Scheduled Setup",
+            "description": "Scheduled Capacity Requirements for Setup"
+          },
+          "RemainingCapReqOpSegSetupDurn": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Remaining Setup",
+            "description": "Remaining Capacity Requirements for Setup"
+          },
+          "ScheduledCapReqOpSegProcgDurn": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Scheduled Processing",
+            "description": "Scheduled Capacity Requirements for Processing"
+          },
+          "RemainingCapReqOpSegProcgDurn": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Remaining Processing",
+            "description": "Remaining Capacity Requirements for Processing"
+          },
+          "ScheduledCapReqOpSegTrdwnDurn": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Scheduled Teardown",
+            "description": "Scheduled Capacity Requirements for the Teardown"
+          },
+          "RemainingCapReqOpSegTrdwnDurn": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "double",
+            "example": 3.14,
+            "title": "Remaining Teardown",
+            "description": "Remaining Capacity Requirements for Teardown"
+          },
+          "WrkCtrHasLeadingCapacity": {
+            "type": "boolean",
+            "title": "Work Center has leading capacity",
+            "description": "Work center has leading capacity"
+          },
+          "OperationText": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Operation Short Text"
+          },
+          "PlannedOrderLastChangeDateTime": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time",
+            "example": "2017-04-13T15:51:04Z",
+            "title": "Change Time Stamp",
+            "description": "Last Change to Planned Order: Time Stamp"
+          },
+          "SAP__Messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.SAP__Message"
+            }
+          },
+          "_PlannedOrder": {
+            "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType"
+          }
+        },
+        "title": "Planned Order Capacity"
+      },
+      "com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderCapacityType-create": {
+        "type": "object",
+        "properties": {
+          "SAP__Messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.SAP__Message-create"
+            }
+          },
+          "_PlannedOrder": {
+            "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType-create"
+          }
+        },
+        "title": "Planned Order Capacity (for create)"
+      },
+      "com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderCapacityType-update": {
+        "type": "object",
+        "properties": {
+          "SAP__Messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.SAP__Message-update"
+            }
+          }
+        },
+        "title": "Planned Order Capacity (for update)"
+      },
+      "com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderComponentType": {
+        "type": "object",
+        "properties": {
+          "PlannedOrder": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Planned Order"
+          },
+          "Reservation": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Reservation",
+            "description": "Number of reservation/dependent requirements"
+          },
+          "ReservationItem": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Reservation Item"
+          },
+          "BOMItem": {
+            "type": "string",
+            "maxLength": 8,
+            "title": "BOM Item",
+            "description": "Bill of Material Item"
+          },
+          "BOMItemDescription": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Item Text",
+            "description": "BOM Item Text (Line 1)"
+          },
+          "BillOfMaterialCategory": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "BOM Category",
+            "description": "Bill of Material Category Code"
+          },
+          "BOMItemSorter": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sort String"
+          },
+          "BillOfMaterialItemNumber": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Bill Of Material Item Number"
+          },
+          "BillOfMaterialInternalID": {
+            "type": "string",
+            "maxLength": 8,
+            "title": "Bill Of Material"
+          },
+          "BillOfMaterialVariant": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Alternative BOM"
+          },
+          "BOMItemCategory": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "BOM Item Category",
+            "description": "Bill of Material Item Category"
+          },
+          "Material": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Material Number"
+          },
+          "MatlCompRequirementDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Requirement Date",
+            "description": "Material Component Requirement Date"
+          },
+          "GoodsMovementEntryQty": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": 0,
+            "title": "Quantity in Unit of Entry"
+          },
+          "EntryUnit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Unit of Entry",
+            "description": "Unit of entry"
+          },
+          "RequiredQuantity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": 0,
+            "title": "Requirement Quantity"
+          },
+          "BaseUnit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Base Unit of Measure"
+          },
+          "WithdrawnQuantity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": 0,
+            "title": "Withdrawn Quantity"
+          },
+          "DebitCreditCode": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Debit Credit Code",
+            "description": "Debit/Credit Code"
+          },
+          "ComponentScrapInPercent": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-2,
+            "minimum": -999.99,
+            "maximum": 999.99,
+            "example": 0,
+            "title": "Component Scrap (%)",
+            "description": "Component Scrap in Percent"
+          },
+          "QuantityIsFixed": {
+            "type": "boolean",
+            "title": "Quantity is fixed"
+          },
+          "MaterialComponentIsPhantomItem": {
+            "type": "boolean",
+            "title": "Phantom Item",
+            "description": "Phantom Item Indicator"
+          },
+          "Plant": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Plant"
+          },
+          "StorageLocation": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Storage Location"
+          },
+          "SupplyArea": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Production Supply Area"
+          },
+          "MRPController": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "MRP Controller"
+          },
+          "OrderPathValue": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Order path"
+          },
+          "OrderLevelValue": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Order level"
+          },
+          "Assembly": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Pegged Requirement",
+            "description": "Higher-Level Assembly Material"
+          },
+          "AssemblyOrderPathValue": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Assembly Order Path"
+          },
+          "AssemblyOrderLevelValue": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Assembly Order Level"
+          },
+          "DiscontinuationGroup": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Discontinuation Group"
+          },
+          "MatlCompDiscontinuationType": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Discontinuation Type"
+          },
+          "MatlCompIsFollowUpMaterial": {
+            "type": "boolean",
+            "title": "Component is Follow-Up Material",
+            "description": "Indicator: Component is Follow-Up Material"
+          },
+          "FollowUpGroup": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Follow-up Group"
+          },
+          "FollowUpMaterial": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Follow-Up / Original Material"
+          },
+          "FollowUpMaterialIsNotActive": {
+            "type": "boolean",
+            "title": "Follow-Up Material is Active",
+            "description": "Indicator: Follow-Up Material is Active"
+          },
+          "PlannedOrderLastChangeDateTime": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time",
+            "example": "2017-04-13T15:51:04Z",
+            "title": "Change Time Stamp",
+            "description": "Last Change to Planned Order: Time Stamp"
+          },
+          "_PlannedOrder": {
+            "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType"
+          }
+        },
+        "title": "Planned Order Component"
+      },
+      "com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderComponentType-create": {
+        "type": "object",
+        "properties": {
+          "PlannedOrder": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Planned Order"
+          },
+          "BOMItemSorter": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sort String"
+          },
+          "BillOfMaterialItemNumber": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Bill Of Material Item Number"
+          },
+          "Material": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Material Number"
+          },
+          "MatlCompRequirementDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Requirement Date",
+            "description": "Material Component Requirement Date"
+          },
+          "GoodsMovementEntryQty": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": 0,
+            "title": "Quantity in Unit of Entry"
+          },
+          "EntryUnit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Unit of Entry",
+            "description": "Unit of entry"
+          },
+          "QuantityIsFixed": {
+            "type": "boolean",
+            "title": "Quantity is fixed"
+          },
+          "Plant": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Plant"
+          },
+          "StorageLocation": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Storage Location"
+          },
+          "SupplyArea": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Production Supply Area"
+          },
+          "_PlannedOrder": {
+            "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType-create"
+          }
+        },
+        "required": [
+          "PlannedOrder"
+        ],
+        "title": "Planned Order Component (for create)"
+      },
+      "com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderComponentType-update": {
+        "type": "object",
+        "properties": {
+          "BOMItemSorter": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sort String"
+          },
+          "BillOfMaterialItemNumber": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Bill Of Material Item Number"
+          },
+          "Material": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Material Number"
+          },
+          "MatlCompRequirementDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Requirement Date",
+            "description": "Material Component Requirement Date"
+          },
+          "GoodsMovementEntryQty": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": 0,
+            "title": "Quantity in Unit of Entry"
+          },
+          "EntryUnit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Unit of Entry",
+            "description": "Unit of entry"
+          },
+          "QuantityIsFixed": {
+            "type": "boolean",
+            "title": "Quantity is fixed"
+          },
+          "Plant": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Plant"
+          },
+          "StorageLocation": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Storage Location"
+          },
+          "SupplyArea": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Production Supply Area"
+          }
+        },
+        "title": "Planned Order Component (for update)"
+      },
+      "com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType": {
+        "type": "object",
+        "properties": {
+          "PlannedOrder": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Planned Order"
+          },
+          "PlannedOrderType": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Planned Order Type"
+          },
+          "PlannedOrderProfile": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Plnned order profile",
+            "description": "Planned order profile"
+          },
+          "Material": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Planning material"
+          },
+          "MaterialName": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Material Description"
+          },
+          "ProductionPlant": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Production Plant"
+          },
+          "MRPPlant": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Planning Plant"
+          },
+          "MRPArea": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "MRP Area"
+          },
+          "ProductionVersion": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Production Version"
+          },
+          "MaterialProcurementCategory": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Procurement Category",
+            "description": "Material Procurement Category"
+          },
+          "MaterialProcurementType": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Procurement Type",
+            "description": "Material Procurement Type"
+          },
+          "StorageLocation": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Storage Location"
+          },
+          "BaseUnit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Base Unit of Measure"
+          },
+          "TotalQuantity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": 0,
+            "title": "Total Order Quantity",
+            "description": "Planned Total Order Quantity"
+          },
+          "PlndOrderPlannedScrapQty": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": 0,
+            "title": "Scrap Quantity",
+            "description": "Planned Scrap Quantity"
+          },
+          "GoodsReceiptQty": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": 0,
+            "title": "Quantity Received",
+            "description": "Quantity of Goods Received"
+          },
+          "IssuedQuantity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": 0,
+            "title": "Issued Quantity"
+          },
+          "PlndOrderPlannedStartDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Order Start Date",
+            "description": "Planned Order Start Date"
+          },
+          "PlndOrderPlannedStartTime": {
+            "type": "string",
+            "format": "time",
+            "example": "15:51:04",
+            "title": "Order Start Time",
+            "description": "Planned Order Start Time"
+          },
+          "PlndOrderPlannedEndDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Order End Date",
+            "description": "Planned Order End Date"
+          },
+          "PlndOrderPlannedEndTime": {
+            "type": "string",
+            "format": "time",
+            "example": "15:51:04",
+            "title": "Order End Time",
+            "description": "Planned Order End Time"
+          },
+          "PlannedOrderOpeningDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Order Opening Date",
+            "description": "Planned Opening Date in Planned Order"
+          },
+          "PlannedOrderLastChangeDateTime": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time",
+            "example": "2017-04-13T15:51:04Z",
+            "title": "Change Time Stamp",
+            "description": "Last Change to Planned Order: Time Stamp"
+          },
+          "ProductionStartDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Production Start Dte",
+            "description": "Start Date for Production"
+          },
+          "ProductionEndDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Production End Date",
+            "description": "End Date for Production"
+          },
+          "SalesOrder": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sales Order"
+          },
+          "SalesOrderItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Sales Order Item"
+          },
+          "Customer": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Customer",
+            "description": "Customer Number"
+          },
+          "WBSElementInternalID": {
+            "type": "string",
+            "maxLength": 8,
+            "title": "WBS Internal ID",
+            "description": "WBS Element"
+          },
+          "WBSElementExternalID": {
+            "type": "string",
+            "maxLength": 24,
+            "title": "WBS Element",
+            "description": "Work Breakdown Structure Element (WBS Element) Edited"
+          },
+          "WBSDescription": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "WBS Element Name"
+          },
+          "AccountAssignmentCategory": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Account Assignment Category"
+          },
+          "Reservation": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Reservation",
+            "description": "Number of reservation/dependent requirements"
+          },
+          "MRPController": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "MRP Controller"
+          },
+          "ProductionSupervisor": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Production Supervisor"
+          },
+          "PurchasingGroup": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Purchasing Group"
+          },
+          "PurchasingOrganization": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Purch. Organization",
+            "description": "Purchasing Organization"
+          },
+          "FixedSupplier": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Fixed Vendor"
+          },
+          "PurchasingDocument": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Purchase Agreement",
+            "description": "Purchase Schedule/Outline Agreement"
+          },
+          "PurchasingDocumentItem": {
+            "type": "string",
+            "maxLength": 5,
+            "title": "Agreement Item",
+            "description": "Purchase Schedule/Outline Agreement Item"
+          },
+          "QuotaArrangement": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Quota Arrangement"
+          },
+          "QuotaArrangementItem": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Quota Arrangement Item"
+          },
+          "SupplierName": {
+            "type": "string",
+            "maxLength": 80,
+            "title": "Name of Supplier"
+          },
+          "PlannedOrderIsFirm": {
+            "type": "boolean",
+            "title": "Firming Indicator",
+            "description": "Firming Indicator for Planned Order Data"
+          },
+          "PlannedOrderIsConvertible": {
+            "type": "boolean",
+            "title": "Conversion Indicator",
+            "description": "Planned Order Conversion Indicator"
+          },
+          "PlannedOrderBOMIsFixed": {
+            "type": "boolean",
+            "title": "BOM Fixing Indicator",
+            "description": "Fixing Indicator for BOM Explosion"
+          },
+          "PlannedOrderCapacityIsDsptchd": {
+            "type": "boolean",
+            "title": "Capacity Dispatched",
+            "description": "Indicator: Capacity for Planned Order is Dispatched"
+          },
+          "CapacityRequirement": {
+            "type": "string",
+            "maxLength": 12,
+            "title": "Capacity Requirement",
+            "description": "ID of the Capacity Requirements Record"
+          },
+          "BillOfOperationsVariant": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Group Counter"
+          },
+          "CapacityRequirementOrigin": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Capacity Requirement Origin"
+          },
+          "BillOfOperationsType": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Task List Type"
+          },
+          "BillOfOperationsGroup": {
+            "type": "string",
+            "maxLength": 8,
+            "title": "Group",
+            "description": "Key for Task List Group"
+          },
+          "LastScheduledDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Scheduled on",
+            "description": "Date of the Last Scheduling"
+          },
+          "ScheduledBasicEndDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Scheduled finish"
+          },
+          "ScheduledBasicEndTime": {
+            "type": "string",
+            "format": "time",
+            "example": "15:51:04",
+            "title": "Earliest finish",
+            "description": "Earliest finish of operation (time)"
+          },
+          "ScheduledBasicStartDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Scheduled start"
+          },
+          "ScheduledBasicStartTime": {
+            "type": "string",
+            "format": "time",
+            "example": "15:51:04",
+            "title": "Earliest start time",
+            "description": "Earliest scheduled start: Execution (time)"
+          },
+          "SchedulingType": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Scheduling Type"
+          },
+          "SAP__Messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.SAP__Message"
+            }
+          },
+          "_PlannedOrderCapacity": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderCapacityType"
+            }
+          },
+          "_PlannedOrderComponent": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderComponentType"
+            }
+          }
+        },
+        "title": "Planned Order"
+      },
+      "com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType-create": {
+        "type": "object",
+        "properties": {
+          "PlannedOrder": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Planned Order"
+          },
+          "PlannedOrderProfile": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Plnned order profile",
+            "description": "Planned order profile"
+          },
+          "Material": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Planning material"
+          },
+          "ProductionPlant": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Production Plant"
+          },
+          "MRPArea": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "MRP Area"
+          },
+          "ProductionVersion": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Production Version"
+          },
+          "MaterialProcurementCategory": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Procurement Category",
+            "description": "Material Procurement Category"
+          },
+          "MaterialProcurementType": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Procurement Type",
+            "description": "Material Procurement Type"
+          },
+          "StorageLocation": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Storage Location"
+          },
+          "BaseUnit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Base Unit of Measure"
+          },
+          "TotalQuantity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": 0,
+            "title": "Total Order Quantity",
+            "description": "Planned Total Order Quantity"
+          },
+          "PlndOrderPlannedScrapQty": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": 0,
+            "title": "Scrap Quantity",
+            "description": "Planned Scrap Quantity"
+          },
+          "PlndOrderPlannedStartDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Order Start Date",
+            "description": "Planned Order Start Date"
+          },
+          "PlndOrderPlannedEndDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Order End Date",
+            "description": "Planned Order End Date"
+          },
+          "PlannedOrderOpeningDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Order Opening Date",
+            "description": "Planned Opening Date in Planned Order"
+          },
+          "SalesOrder": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sales Order"
+          },
+          "SalesOrderItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Sales Order Item"
+          },
+          "WBSElementExternalID": {
+            "type": "string",
+            "maxLength": 24,
+            "title": "WBS Element",
+            "description": "Work Breakdown Structure Element (WBS Element) Edited"
+          },
+          "AccountAssignmentCategory": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "Account Assignment Category"
+          },
+          "PlannedOrderIsFirm": {
+            "type": "boolean",
+            "title": "Firming Indicator",
+            "description": "Firming Indicator for Planned Order Data"
+          },
+          "PlannedOrderIsConvertible": {
+            "type": "boolean",
+            "title": "Conversion Indicator",
+            "description": "Planned Order Conversion Indicator"
+          },
+          "PlannedOrderBOMIsFixed": {
+            "type": "boolean",
+            "title": "BOM Fixing Indicator",
+            "description": "Fixing Indicator for BOM Explosion"
+          },
+          "BillOfOperationsVariant": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Group Counter"
+          },
+          "SAP__Messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.SAP__Message-create"
+            }
+          },
+          "_PlannedOrderCapacity": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderCapacityType-create"
+            }
+          },
+          "_PlannedOrderComponent": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderComponentType-create"
+            }
+          }
+        },
+        "required": [
+          "PlannedOrder"
+        ],
+        "title": "Planned Order (for create)"
+      },
+      "com.sap.gateway.srvd_a2x.api_plannedorder.v0001.PlannedOrderHeaderType-update": {
+        "type": "object",
+        "properties": {
+          "ProductionVersion": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Production Version"
+          },
+          "StorageLocation": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Storage Location"
+          },
+          "BaseUnit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Base Unit of Measure"
+          },
+          "TotalQuantity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": 0,
+            "title": "Total Order Quantity",
+            "description": "Planned Total Order Quantity"
+          },
+          "PlndOrderPlannedScrapQty": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": 0,
+            "title": "Scrap Quantity",
+            "description": "Planned Scrap Quantity"
+          },
+          "PlndOrderPlannedStartDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Order Start Date",
+            "description": "Planned Order Start Date"
+          },
+          "PlndOrderPlannedEndDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Order End Date",
+            "description": "Planned Order End Date"
+          },
+          "PlannedOrderOpeningDate": {
+            "type": "string",
+            "nullable": true,
+            "format": "date",
+            "example": "2017-04-13",
+            "title": "Order Opening Date",
+            "description": "Planned Opening Date in Planned Order"
+          },
+          "PlannedOrderIsFirm": {
+            "type": "boolean",
+            "title": "Firming Indicator",
+            "description": "Firming Indicator for Planned Order Data"
+          },
+          "PlannedOrderIsConvertible": {
+            "type": "boolean",
+            "title": "Conversion Indicator",
+            "description": "Planned Order Conversion Indicator"
+          },
+          "PlannedOrderBOMIsFixed": {
+            "type": "boolean",
+            "title": "BOM Fixing Indicator",
+            "description": "Fixing Indicator for BOM Explosion"
+          },
+          "BillOfOperationsVariant": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Group Counter"
+          },
+          "SAP__Messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_plannedorder.v0001.SAP__Message-update"
+            }
+          }
+        },
+        "title": "Planned Order (for update)"
+      },
+      "com.sap.gateway.srvd_a2x.api_plannedorder.v0001.SAP__Message": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionalTargets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "transition": {
+            "type": "boolean"
+          },
+          "numericSeverity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "longtextUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "title": "SAP__Message"
+      },
+      "com.sap.gateway.srvd_a2x.api_plannedorder.v0001.SAP__Message-create": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionalTargets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "transition": {
+            "type": "boolean"
+          },
+          "numericSeverity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "longtextUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "title": "SAP__Message (for create)"
+      },
+      "com.sap.gateway.srvd_a2x.api_plannedorder.v0001.SAP__Message-update": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionalTargets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "transition": {
+            "type": "boolean"
+          },
+          "numericSeverity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "longtextUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "title": "SAP__Message (for update)"
+      },
+      "count": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ],
+        "description": "The number of entities in the collection. Available when using the [$count](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptioncount) query option."
+      },
+      "error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "object",
+                "required": [
+                  "lang",
+                  "value"
+                ],
+                "properties": {
+                  "lang": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "innererror": {
+                "type": "object",
+                "description": "The structure of this object is service-specific"
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "top": {
+        "name": "$top",
+        "in": "query",
+        "description": "Show only the first n items, see [Paging - Top](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptiontop)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "example": 50
+      },
+      "skip": {
+        "name": "$skip",
+        "in": "query",
+        "description": "Skip the first n items, see [Paging - Skip](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionskip)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "count": {
+        "name": "$count",
+        "in": "query",
+        "description": "Include count of items, see [Count](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptioncount)",
+        "schema": {
+          "type": "boolean"
+        }
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      }
+    }
+  }
+}
